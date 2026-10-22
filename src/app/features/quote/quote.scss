@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+.quote-page {
+  padding: clamp(24px, 4vw, 48px);
+  width: 100%;
+  max-width: 1040px;
+  margin-inline: auto;
+}
+.quotation-mark {
+  display: block;
+  color: var(--accent);
+  font-size: 4rem;
+  height: 2.5rem;
+  line-height: 1;
+}
+blockquote {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+  max-width: 30ch;
+  margin: 12px 0 40px;
+  text-wrap: balance;
+}
+.quote-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.quote-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+.next-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+}
+.next-quote:hover {
+  background: var(--selected-surface);
+  border-color: var(--accent);
+}
+@media print {
+  .quote-actions {
+    display: none;
+  }
+}

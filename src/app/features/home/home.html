@@ -1,0 +1,46 @@
+<header class="page-heading">
+  <h1 tabindex="-1">Home</h1>
+</header>
+<section class="intro-card" aria-labelledby="idea-heading">
+  <h2 id="idea-heading">A little momentum.</h2>
+  <p>
+    <strong>Momentum</strong> means the force or progress that builds when something is already
+    moving.
+  </p>
+  <p class="progression">
+    Small actions <span>→</span> consistency <span>→</span> progress <span>→</span> momentum.
+  </p>
+</section>
+<section class="collections" aria-labelledby="collections-heading">
+  <div class="section-heading">
+    <div>
+      <h2 id="collections-heading">Your quotes</h2>
+      <p>Choose one or more categories. Keep at least one selected.</p>
+    </div>
+    <a routerLink="/quote" class="quote-link">View quotes <app-icon name="arrow" /></a>
+  </div>
+  <ul class="category-grid" aria-label="Quote categories">
+    @for (category of categories; track category.name; let i = $index) {
+      <li>
+        <button
+          type="button"
+          class="category-tile"
+          [class.selected]="preferences.categories().includes(category.name)"
+          [attr.aria-pressed]="preferences.categories().includes(category.name)"
+          (click)="preferences.toggleCategory(category.name)"
+        >
+          <span class="category-top">
+            <app-icon [name]="category.icon" />
+            @if (preferences.categories().includes(category.name)) {
+              <app-icon name="check" />
+            } @else {
+              <span class="tile-number">0{{ i + 1 }}</span>
+            }
+          </span>
+          <span class="category-name">{{ category.name }}</span>
+          <span class="category-description">{{ category.description }}</span>
+        </button>
+      </li>
+    }
+  </ul>
+</section>

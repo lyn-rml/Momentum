@@ -1,0 +1,20 @@
+<h1 class="sr-only" tabindex="-1">Quotes</h1>
+<article class="quote-page" aria-label="Quote">
+  <span class="quotation-mark" aria-hidden="true">“</span>
+  <blockquote aria-live="polite" aria-atomic="true">{{ quote().text }}</blockquote>
+  <div class="quote-meta">
+    <span>{{ quote().category }}</span>
+    <time [attr.datetime]="today() | date: 'yyyy-MM-dd'">{{ today() | date: 'MMMM d, yyyy' }}</time>
+  </div>
+  <div class="quote-actions">
+    <button
+      type="button"
+      class="next-quote"
+      aria-label="Next quote"
+      title="Next quote"
+      (click)="nextQuote()"
+    >
+      <app-icon name="arrow" />
+    </button>
+  </div>
+</article>
